@@ -19,34 +19,34 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    <form role="form" method="post" action="{{url('/allmenu/store')}}" entype="multipart/form-data">
+                                        {{ csrf_field ()}}
                                         <div class="form-group">
-                                            <label>Name</label>
-                                            <input class="form-control">
+                                            <label>Id</label>
+                                            <input class="form-control" name="id" required="required">
                                         </div>
                                         <div class="form-group">
-                                            <label>File input</label>
-                                            <input type="file">
+                                            <label>Name</label>
+                                            <input class="form-control" name="name" required="required">
                                         </div>
                                         <div class="form-group">
                                             <label>Type</label>
-                                            <div class="checkbox">
+                                            <div class="checkbox" name="type" required="required">
                                                 <label>
-                                                    <input type="checkbox" value="">Makanan
+                                                    <input type="checkbox" name="type" value="Makanan">Makanan
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Minuman
+                                                    <input type="checkbox" name="type" value="Minuman">Minuman
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Price</label>
-                                            <input class="form-control">
-                                        </div>
-                                        
-                                        <button type="submit" class="btn btn-default">Submit Button</button>
+                                            <input class="form-control" name="price" required="required">
+                                        </div>                                        
+                                        <button type="submit"  class="btn btn-default">Submit Button</button>
                                         <button type="reset" class="btn btn-default">Reset Button</button>
                                     </form>
                                 </div>

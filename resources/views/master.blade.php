@@ -28,7 +28,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><i class="fa fa-gear"></i> <strong>KASIRKU</strong></a>
+                <a class="navbar-brand" href="index"><i class="fa fa-gear"></i> <strong>KASIRKU</strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -232,7 +232,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="{{url('/logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -247,10 +247,10 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> All Menu</a>
+                        <a class="active-menu" href="allmenu"><i class="fa fa-dashboard"></i> All Menu</a>
                     </li>
                     <li>
-                        <a href="ui-elements.html"><i class="fa fa-desktop"></i> Paket</a>
+                        <a href="paket"><i class="fa fa-desktop"></i> Paket</a>
                     </li>
 					<li>
                         <a href="chart.html"><i class="fa fa-bar-chart-o"></i> Transaction </a>
@@ -270,7 +270,9 @@
             </div>
 
         </nav>
+        <div class="container">
         @yield('content')
+        </div>
 
         @show
         <!-- /. NAV SIDE  -->

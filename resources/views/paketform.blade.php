@@ -8,7 +8,7 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Forms Page <small>ALL MENU</small>
+                            Forms Page <small>PAKET</small>
                         </h1>
                     </div>
                 </div> 
@@ -19,37 +19,37 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    <form role="form" method="post" action="{{url('/paket/store')}}" entype="multipart/form-data">
+                                        {{ csrf_field ()}}
+                                        <div class="form-group">
+                                            <label>Id</label>
+                                            <input class="form-control"  name="id" required="required">
+                                        </div>
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>File input</label>
-                                            <input type="file">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Type</label>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Makanan
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="">Minuman
-                                                </label>
-                                            </div>
+                                            <input class="form-control"  name="name" required="required">
                                         </div>
                                         <div class="form-group">
                                             <label>Detail</label>
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <textarea class="form-control" rows="3"  name="detail" required="required"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Price</label>
-                                            <input class="form-control">
+                                            <input class="form-control"  name="price" required="required">
                                         </div>
-                                        
+                                        <div class="form-group">
+                                            <label>Type</label>
+                                            <div class="checkbox"  name="type" required="required">
+                                                <label>
+                                                    <input type="checkbox" name="type" value="Makanan">Makanan
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="type" value="Minuman">Minuman
+                                                </label>
+                                            </div>
+                                        </div>
                                         <button type="submit" class="btn btn-default">Submit Button</button>
                                         <button type="reset" class="btn btn-default">Reset Button</button>
                                     </form>
