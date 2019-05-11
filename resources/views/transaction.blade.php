@@ -7,7 +7,7 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Menu
+                            Transaksi
                         </h1>
                     </div>
                 </div> 
@@ -18,7 +18,7 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                        <a href="{{url('allmenu/tambah')}}"> + Tambah Menu Baru</a>
+                        <a href="{{url('transaction/tambah')}}"> + Tambah </a>
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -26,21 +26,19 @@
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Type</th>
-                                            <th>Price</th>
+                                            <th>Id Order</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    @foreach($allmenu as $p)
+                                    @foreach ($transaction as $p)
 		                                <tr>
                                             <td>{{ $p->id }}</td>
-			                                <td>{{ $p->name }}</td>
-			                                <td>{{ $p->type }}</td>
-			                                <td>{{ $p->price }}</td>
+			                                <td>{{ $p->id_orders_fk }}</td>
+			                                <td>{{ $p->status }}</td>
 			                                <td>
-				                            <a href="allmenu/edit/{{ $p->id }}">Edit</a>
-				                            <a href="allmenu/hapus/{{ $p->id }}">Hapus</a>
+				                            <a href="transaction/edit/{{ $p->id }}">Edit</a>
+                                            <a href="transaction/hapus/{{ $p->id }}">Hapus</a>
 			                                </td>
 		                                </tr>
 		                            @endforeach

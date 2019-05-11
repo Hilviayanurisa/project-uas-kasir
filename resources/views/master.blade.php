@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KASIRKU</title>
     <!-- Bootstrap Styles-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet" />
     <!-- FontAwesome Styles-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="{{asset('assets/css/font-awesome.css')}}" rel="stylesheet" />
     <!-- Morris Chart Styles-->
-    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="{{asset('assets/js/morris/morris-0.4.3.min.css')}}" rel="stylesheet" />
     <!-- Custom Styles-->
-    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="{{asset('assets/css/custom-styles.css')}}" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' /> 
      
@@ -24,11 +24,9 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    
                 </button>
-                <a class="navbar-brand" href="index"><i class="fa fa-gear"></i> <strong>KASIRKU</strong></a>
+                <a class="navbar-brand" href="{{url('index')}}"><i class="fa fa-home"></i> <strong>KASIRKU</strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -247,23 +245,16 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="allmenu"><i class="fa fa-dashboard"></i> All Menu</a>
+                        <a class="active-menu" href="{{url('allmenu')}}"><i class="fa fa-bars"></i> All Menu</a>
                     </li>
                     <li>
-                        <a href="paket"><i class="fa fa-desktop"></i> Paket</a>
+                        <a href="{{url('order')}}"><i class="fa fa-desktop"></i> Order</a>
+                    </li>
+                    <li>
+                        <a href="{{url('detail')}}"><i class="fa fa-fw fa-file"></i> Detail Order</a>
                     </li>
 					<li>
-                        <a href="chart.html"><i class="fa fa-bar-chart-o"></i> Transaction </a>
-                    </li>
-                    <li>
-                        <a href="form"><i class="fa fa-edit"></i> Forms </a>
-                        <ul class="sub">
-                        <a href="menuform"><i class="fa fa-edit"></i> allmenu </a>
-                        <a href="paketform"><i class="fa fa-edit"></i> paket </a>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
+                        <a href="{{url('transaction')}}"><i class="fa fa-bar-chart-o"></i> Transaction </a>
                     </li>
                 </ul>
 

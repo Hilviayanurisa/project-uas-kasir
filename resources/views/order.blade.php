@@ -7,7 +7,7 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Menu
+                            Order
                         </h1>
                     </div>
                 </div> 
@@ -18,7 +18,7 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                        <a href="{{url('allmenu/tambah')}}"> + Tambah Menu Baru</a>
+                        <a href="{{url('order/tambah')}}"> + Tambah Pesanan Baru</a>
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -26,21 +26,19 @@
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Type</th>
-                                            <th>Price</th>
+                                            <th>Table Number</th>
+                                            <th>Total</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    @foreach($allmenu as $p)
+                                    @foreach($order as $p)
 		                                <tr>
                                             <td>{{ $p->id }}</td>
-			                                <td>{{ $p->name }}</td>
-			                                <td>{{ $p->type }}</td>
-			                                <td>{{ $p->price }}</td>
-			                                <td>
-				                            <a href="allmenu/edit/{{ $p->id }}">Edit</a>
-				                            <a href="allmenu/hapus/{{ $p->id }}">Hapus</a>
+			                                <td>{{ $p->table_number }}</td>
+			                                <td>{{ $p->total }}</td>
+                                            <td>
+				                            <a href="order/edit/{{ $p->id }}">Edit</a>
+				                            <a href="order/hapus/{{ $p->id }}">Hapus</a>
 			                                </td>
 		                                </tr>
 		                            @endforeach

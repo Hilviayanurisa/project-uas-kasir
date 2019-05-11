@@ -23,31 +23,40 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('menuform', function () {
-    return view('menuform');
-});
-
-Route::get('paketform', function () {
-    return view('paketform');
-});
-
 Route::get('index', function () {
     return view('index');
 });
 
-Route::get('allmenu', function () {
-    return view('allmenu');
-});
+Route::get('/logout','\App\Htpp\Controllers\Auth\LoginController@logout');
+
 
 Route::get('/logout','Auth\LoginController@logout');
 Route::get('auth/login', 'Auth\LoginController@login');
 
-Route::get('/allmenu','AllmenuController@index');
-Route::get('/allmenu/tambah','AllmenuController@tambah');
-Route::post('/allmenu/store','AllmenuController@store');
-Route::get('/allmenu/edit/{id}','AllmenuController@edit');
-Route::post('/allmenu/update','AllmenuController@update');
+Route::get('allmenu','AllmenuController@index');
+Route::get('allmenu/tambah','AllmenuController@tambah');
+Route::post('allmenu/store','AllmenuController@store');
+Route::get('allmenu/edit/{id}','AllmenuController@edit');
+Route::post('allmenu/update','AllmenuController@update');
+Route::get('allmenu/hapus/{id}','AllmenuController@hapus');
 
-Route::get('/paket','PaketController@index');
-Route::get('/paket/tambah','PaketController@tambah');
-Route::post('/paket/store','PaketController@store');
+Route::get('order','OrderController@index');
+Route::get('order/tambah','OrderController@tambah');
+Route::post('order/store','OrderController@store');
+Route::get('order/edit/{id}','OrderController@edit');
+Route::post('order/update','OrderController@update');
+Route::get('order/hapus/{id}','OrderController@hapus');
+
+Route::get('transaction','TransactionController@index');
+Route::get('transaction/tambah','TransactionController@tambah');
+Route::post('transaction/store','TransactionController@store');
+Route::get('transaction/edit/{id}','TransactionController@edit');
+Route::post('transaction/update','TransactionController@update');
+Route::get('transaction/hapus/{id}','TransactionController@hapus');
+
+Route::get('detail','DetailController@index');
+Route::get('detail/tambah','DetailController@tambah');
+Route::post('detail/store','DetailController@store');
+Route::get('detail/edit/{id}','DetailController@edit');
+Route::post('detail/update/{id}','DetailController@update');
+Route::get('detail/hapus/{id}','DetailController@hapus');

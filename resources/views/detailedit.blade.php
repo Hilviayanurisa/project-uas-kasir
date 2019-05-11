@@ -8,7 +8,7 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Edit Menu
+                            Edit Pesanan
                         </h1>
                     </div>
                 </div> 
@@ -19,43 +19,35 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-								@foreach($allmenu as $p)
-								<form action="{{url('/allmenu/update')}}" method="post">
+								@foreach($order_detail as $p)
+								<form action="{{url('detail/update. $p->id')}}" method="post">
 		{{ csrf_field() }}
 		<input type="hidden" name="id" value="{{ $p->id }}"> <br/>
         <div class="form-group">
-            <label>Name</label>
-            <input class="form-control" name="name" required="required" value="{{ $p->name }}">
+            <label>Id Order</label>
+            <input class="form-control" name="id_orders_fk" required="required" value="{{ $p->id_orders_fk }}">
         </div>
         <div class="form-group">
-            <label>Type</label>
-                <div class="radio" name="type" required="required">
-            <label>
-                <input type="radio" name="type" value="Makanan"
-                <?php if($p->type=='Makanan') : echo 'checked'; ?><?php endif; ?>> Makanan <br/> 
-            </label>
-            </div>
-            <div class="radio">
-            <label>
-                <input type="radio" name="type" value="Minuman"
-                <?php if($p->type=='Minuman') : echo 'checked'; ?><?php endif; ?>> Minuman <br/> 
-            </label>
-            </div>
+            <label>Id Menu</label>
+                <input class="form-control" name="id_allmenu_fk" required="required" value="{{ $p->id_allmenu_fk }}">
         </div>
         <div class="form-group">
-            <label>Price</label>
-                <input class="form-control" name="price" required="required" value="{{ $p->price }}">
+            <label>Quantity</label>
+                <input class="form-control" name="id_allmenu_fk" required="required" value="{{ $p->quantity }}">
+        </div>
+        <div class="form-group">
+            <label>note</label>
+                <input class="form-control" name="id_allmenu_fk" required="required" value="{{ $p->note }}">
         </div>    
+        <div class="form-group">
+            <label>Subtotal</label>
+                <input class="form-control" name="id_allmenu_fk" required="required" value="{{ $p->subtotal }}">
+        </div>
         <button type="submit"  class="btn btn-default">Submit Button</button>
         <button type="reset" class="btn btn-default">Reset Button</button>
 	</form>
 	@endforeach
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-6">
-                                    
-                                        </div>
-                                    </form>
+                                
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>

@@ -8,7 +8,7 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Tambah Menu Baru
+                            Tambah Pesanan Baru
                         </h1>
                     </div>
                 </div> 
@@ -19,35 +19,37 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" method="post" action="{{url('/allmenu/store')}}" entype="multipart/form-data">
+                                    <form role="form" method="post" action="{{url('/detail/store')}}" entype="multipart/form-data">
                                         {{ csrf_field ()}}
+            
                                         <div class="form-group">
-                                            <label>Id</label>
-                                            <input class="form-control" name="id" required="required">
+                                            <label>Id Order</label>
+                                            <select class="form-control" name="id_orders_fk" required="required">
+                                                <option value=""> Pilih Nomor Meja </option>
+                                                @foreach ($order as $p)
+                                                    <option value="{{$p->id}}">{{$p->table_number}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Name</label>
-                                            <input class="form-control" name="name" required="required">
+                                            <label>Id Allmenu</label>
+                                            <select class="form-control" name="id_allmenu_fk" required="required">
+                                                <option value=""> Pilih Menu </option>
+                                                @foreach ($allmenu as $p)
+                                                    <option value="{{$p->id}}">{{$p->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Type</label>
-                                            <div class="radio" name="type" required="required">
-                                                <label>
-                                                    <input type="radio" name="type" value="Makanan">Makanan
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="type" value="Minuman">Minuman
-                                                </label>
-                                            </div>
+                                            <label>Quantity</label>
+                                            <input class="form-control" name="quantity" required="required">
                                         </div>
                                         <div class="form-group">
-                                            <label>Price</label>
-                                            <input class="form-control" name="price" required="required">
-                                        </div>                                        
-                                        <button type="submit"  class="btn btn-default">Submit Button</button>
-                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                            <label>Note</label>
+                                            <input class="form-control" name="note" >
+                                        </div>                                     
+                                        <button type="submit"  class="btn btn-default">Submit </button>
+                                        <button type="reset" class="btn btn-default">Reset </button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->

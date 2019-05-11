@@ -8,7 +8,7 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Tambah Menu Baru
+                            Tambah Transaksi
                         </h1>
                     </div>
                 </div> 
@@ -19,35 +19,36 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" method="post" action="{{url('/allmenu/store')}}" entype="multipart/form-data">
+                                    <form role="form" method="post" action="{{url('/transaction/store')}}" entype="multipart/form-data">
                                         {{ csrf_field ()}}
                                         <div class="form-group">
                                             <label>Id</label>
                                             <input class="form-control" name="id" required="required">
                                         </div>
                                         <div class="form-group">
-                                            <label>Name</label>
-                                            <input class="form-control" name="name" required="required">
+                                            <label>Id Order</label>
+                                            <select class="form-control" name="id_orders_fk" required="required">
+                                                <option value=""> Pilih Nomor Meja </option>
+                                                @foreach ($order as $p)
+                                                    <option value="{{$p->id}}">{{$p->table_number}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Type</label>
+                                            <label>Status</label>
                                             <div class="radio" name="type" required="required">
                                                 <label>
-                                                    <input type="radio" name="type" value="Makanan">Makanan
+                                                    <input type="radio" name="status" value="0">Belum Lunas
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="type" value="Minuman">Minuman
+                                                    <input type="radio" name="status" value="1">Lunas
                                                 </label>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Price</label>
-                                            <input class="form-control" name="price" required="required">
-                                        </div>                                        
-                                        <button type="submit"  class="btn btn-default">Submit Button</button>
-                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                        </div>                                       
+                                        <button type="submit"  class="btn btn-default">Submit </button>
+                                        <button type="reset" class="btn btn-default">Reset </button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->

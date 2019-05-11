@@ -16,7 +16,7 @@ class AllmenuController extends Controller
     
     public function tambah()
     {
-	    return view('tambah');
+	    return view('menuform');
  
     }
 
@@ -37,13 +37,13 @@ class AllmenuController extends Controller
     {
 	    
 	    $allmenu = DB::table('allmenu')->where('id',$id)->get();
-	    return view('edit',['allmenu' => $allmenu]);
+	    return view('allmenuedit',['allmenu' => $allmenu]);
  
     }
   
     public function update(Request $request)
     {
-\
+
 	    DB::table('allmenu')->where('id',$request->id)->update([
 		'name' => $request->name,
 		'type' => $request->type,
@@ -51,5 +51,12 @@ class AllmenuController extends Controller
 	    ]);
 	
 	    return redirect('/allmenu');
+    }
+
+    public function hapus($id)
+    {
+
+	DB::table('allmenu')->where('id',$id)->delete();
+	return redirect('/allmenu');
     }
 }
