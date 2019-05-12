@@ -5,7 +5,11 @@
  <!-- /. ROW  -->
  <div id="page-wrapper">
             <div id="page-inner">
-
+            @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
  <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
@@ -57,3 +61,4 @@
                 </div>
 				
 @endsection
+
