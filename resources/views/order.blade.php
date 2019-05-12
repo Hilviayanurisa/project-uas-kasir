@@ -25,7 +25,6 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
                                             <th>Table Number</th>
                                             <th>Total</th>
                                             <th>Action</th>
@@ -33,7 +32,6 @@
                                     </thead>
                                     @foreach($order as $p)
 		                                <tr>
-                                            <td>{{ $p->id }}</td>
 			                                <td>{{ $p->table_number }}</td>
 			                                <td>{{ $p->total }}</td>
                                             <td>

@@ -22,10 +22,6 @@
                                     <form role="form" method="post" action="{{url('/transaction/store')}}" entype="multipart/form-data">
                                         {{ csrf_field ()}}
                                         <div class="form-group">
-                                            <label>Id</label>
-                                            <input class="form-control" name="id" required="required">
-                                        </div>
-                                        <div class="form-group">
                                             <label>Id Order</label>
                                             <select class="form-control" name="id_orders_fk" required="required">
                                                 <option value=""> Pilih Nomor Meja </option>

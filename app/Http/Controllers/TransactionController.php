@@ -42,8 +42,10 @@ class TransactionController extends Controller
     public function edit($id)
     {
 	    
-	    $transaction = DB::table('transaction')->where('id',$id)->get();
-	    return view('transactionedit',['transaction' => $transaction]);
+        $transaction = TransModel::with(['orders'])->where('id',$id)->get();
+        $order = OrderModel::orderBy('id','ASC')->get();
+
+	    return view('transactionedit', compact('transaction','order'));
  
     }
   

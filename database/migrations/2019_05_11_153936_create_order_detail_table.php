@@ -14,7 +14,7 @@ class CreateOrderDetailTable extends Migration
     public function up()
     {
         Schema::create('order_detail', function (Blueprint $table) {
-            $table->Increments('id');
+            $table->Increments('id_detail');
             $table->integer('id_orders_fk')->onDelete('cascade');;
             $table->integer('id_allmenu_fk')->onDelete('cascade');;
             $table->integer('quantity');

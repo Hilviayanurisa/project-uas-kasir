@@ -41,8 +41,8 @@
                                             <td>{{ $p->note }}</td>
                                             <td>{{ $p->subtotal }}</td>
 			                                <td>
-				                            <a href="detail/edit/{{ $p->id }}">Edit</a>
-                                            <a href="detail/hapus/{{ $p->id }}">Hapus</a>
+				                            <a href="detail/edit/{{ $p->id_detail }}">Edit</a>
+                                            <a href="detail/hapus/{{ $p->id_detail }}">Hapus</a>
 			                                </td>
 		                                </tr>
 		                            @endforeach

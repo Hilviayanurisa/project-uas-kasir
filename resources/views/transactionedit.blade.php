@@ -8,7 +8,7 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Edit Pesanan
+                            Edit Transaksi
                         </h1>
                     </div>
                 </div> 
@@ -19,40 +19,27 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-								@foreach($detail as $p)
-								<form action="{{url('detail/update', $p->id_detail)}}" method="post">
-		{{ csrf_field() }}
-        <div class="form-group">
-            <label>Id Order</label>
-            <select class="form-control" name="id_orders_fk" required="required" >
-                <option value="{{ $p->id_orders_fk }}">{{ $p->orders->table_number }}</option>
-                @foreach ($order as $order)
-                <option value="{{$order->id}}">{{$order->table_number}}</option>
-                @endforeach
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Id Menu</label>
-                <select class="form-control" name="id_allmenu_fk" required="required">
-                    <option value="{{ $p->id_allmenu_fk }}"> {{ $p->allmenus->name }} </option>
-                    @foreach ($allmenu as $allmenu)
-                    <option value="{{$allmenu->id}}">{{$allmenu->name}}</option>
-                    @endforeach
-                </select>
-        </div>
-        <div class="form-group">
-            <label>Quantity</label>
-                <input class="form-control" name="quantity" required="required" value="{{ $p->quantity }}">
-        </div>
-        <div class="form-group">
-            <label>note</label>
-                <input class="form-control" name="note"  value="{{ $p->note }}">
-        </div> 
-        <button type="submit"  class="btn btn-default">Submit Button</button>
-        <button type="reset" class="btn btn-default">Reset Button</button>
-	</form>
-	@endforeach
-                                
+                                @foreach($transaction as $p)
+                                    <form role="form" method="post" action="{{url('/order/store')}}" entype="multipart/form-data">
+                                        {{ csrf_field ()}}
+                                        <div class="form-group">
+                                            <label>Table Number</label>
+                                            <select class="form-control"  name="table_number" required="required">
+                                                <option value="{{ $p->id_orders_fk }}">{{ $p->orders->table_number }}</option>
+                                                @foreach ($order as $order)
+                                                <option value="{{$order->id}}">{{$order->table_number}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-default">Submit Button</button>
+                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                    </form>
+                                </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                <div class="col-lg-6">
+                                 @endforeach   
+                                        </div>
+                                    </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
@@ -86,4 +73,3 @@
 </html>
 
 @endsection
-

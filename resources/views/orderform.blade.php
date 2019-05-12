@@ -22,10 +22,6 @@
                                     <form role="form" method="post" action="{{url('/order/store')}}" entype="multipart/form-data">
                                         {{ csrf_field ()}}
                                         <div class="form-group">
-                                            <label>Id</label>
-                                            <input class="form-control"  name="id" required="required">
-                                        </div>
-                                        <div class="form-group">
                                             <label>Table Number</label>
                                             <input class="form-control"  name="table_number" required="required">
                                         </div>

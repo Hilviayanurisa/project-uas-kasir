@@ -48,21 +48,22 @@ class DetailController extends Controller
 
     public function edit($id)
     {
-	    
-        $order_detail = OrderdetailModel::with(['allmenus'])->where('id',$id)->get();
-        $allmenu = AllMenuModel::orderBy('id', 'ASC')->get();
-	    return view('detailedit', compact('allmenu', 'order_detail'));
- 
+        $detail = OrderdetailModel::with(['orders','allmenus'])->where('id_detail',$id)->get();
+        $allmenu = AllMenuModel::orderBy('id','ASC')->get();
+        $order = OrderModel::orderBy('id','ASC')->get();
+
+	    return view('detailedit', compact('detail','allmenu','order'));
+     
     }
   
     public function update(Request $request, $id)
     {
 
-	    DB::table('order_detail')->where('id', $id)->update([
+	    DB::table('order_detail')->where('id_detail', $id)->update([
             'id_orders_fk' => $request->id_orders_fk,
             'id_allmenu_fk' => $request->id_allmenu_fk,
             'quantity' => $request->quantity,
-            'note' => $request->note,
+            'note' => $request->note
 	    ]);
 	
 	    return redirect('/detail');
@@ -71,7 +72,7 @@ class DetailController extends Controller
     public function hapus($id)
     {
 
-	DB::table('order_detail')->where('id',$id)->delete();
+	DB::table('order_detail')->where('id_detail',$id)->delete();
 	return redirect('/detail');
     }
 }

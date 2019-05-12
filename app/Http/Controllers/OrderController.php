@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\OrderModel;
+use App\OrderdetailModel;
 
 class OrderController extends Controller
 {
@@ -13,7 +15,8 @@ class OrderController extends Controller
         return view('order',['order'=>$order]);
     }
 
-    
+
+
     public function tambah()
     {
 	    return view('orderform');
