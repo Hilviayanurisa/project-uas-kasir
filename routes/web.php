@@ -27,7 +27,7 @@ Route::get('index', function () {
     return view('index');
 });
 
-Route::get('/logout','\App\Htpp\Controllers\Auth\LoginController@logout');
+Route::get('logout','\App\Htpp\Controllers\Auth\LoginController@logout');
 
 
 Route::get('/logout','Auth\LoginController@logout');
