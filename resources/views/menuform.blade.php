@@ -21,10 +21,7 @@
                                 <div class="col-lg-6">
                                     <form role="form" method="post" action="{{url('/allmenu/store')}}" entype="multipart/form-data">
                                         {{ csrf_field ()}}
-                                        <div class="form-group">
-                                            <label>Id</label>
-                                            <input class="form-control" name="id" required="required">
-                                        </div>
+                                        
                                         <div class="form-group">
                                             <label>Name</label>
                                             <input class="form-control" name="name" required="required">

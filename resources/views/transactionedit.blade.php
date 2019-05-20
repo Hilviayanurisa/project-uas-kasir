@@ -20,7 +20,7 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                 @foreach($transaction as $p)
-                                    <form role="form" method="post" action="{{url('/order/store')}}" entype="multipart/form-data">
+                                    <form role="form" method="post" action="{{url('/transaction/store')}}" entype="multipart/form-data">
                                         {{ csrf_field ()}}
                                         <div class="form-group">
                                             <label>Table Number</label>
@@ -30,6 +30,21 @@
                                                 <option value="{{$order->id}}">{{$order->table_number}}</option>
                                                 @endforeach
                                             </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                                <div class="radio" name="status" required="required">
+                                            <label>
+                                                <input type="radio" name="status" value="Makanan"
+                                                <?php if($p->status=='0') : echo 'checked'; ?><?php endif; ?>> Belum Lunas <br/> 
+                                            </label>
+                                                </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="status" value="Minuman"
+                                                        <?php if($p->status=='1') : echo 'checked'; ?><?php endif; ?>> Lunas <br/> 
+                                                </label>
+                                            </div>
                                         </div>
                                         <button type="submit" class="btn btn-default">Submit Button</button>
                                         <button type="reset" class="btn btn-default">Reset Button</button>
